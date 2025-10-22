@@ -1,6 +1,12 @@
 # Information Retrieval Project
 
 This project implements an information retrieval system, likely involving web scraping, text preprocessing, indexing using BM25, and a Streamlit-based user interface for searching.
+Team:
+1. Athaya Naura Khalilah	    (23/512716/PA/21899)
+2. Rizka Nurdiana				(23/513519/PA/21941)
+3. Nasya Putri Raudhah Dahlan	(23/513931/PA/21967)
+4. Jihan Dwi Athanaya			(23/518584/PA/22255)
+
 
 ## Installation
 
