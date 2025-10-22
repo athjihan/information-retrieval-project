@@ -7,6 +7,7 @@ import os
 import subprocess
 import sys
 import logging
+import shutil # Tambah import shutil untuk menghapus file
 try:
     from tqdm import tqdm
 except ImportError:
@@ -78,6 +79,16 @@ if __name__ == "__main__":
         if choice != 'y':
             logging.info("Menggunakan data yang sudah ada.")
             exit(0)
+        else:
+            # Hapus file hasil preprocessing jika user memilih preprocessing ulang
+            if os.path.exists(out_file):
+                os.remove(out_file)
+                logging.info(f"Menghapus file '{out_file}' untuk memulai ulang.")
+            # Juga hapus jsonl jika ada, karena akan dibuat ulang oleh indexer
+            jsonl_path = "data/kompas_nasional_clean.jsonl"
+            if os.path.exists(jsonl_path):
+                os.remove(jsonl_path)
+                logging.info(f"Menghapus file '{jsonl_path}' untuk memulai ulang.")
 
     from time import perf_counter
     t0 = perf_counter()

@@ -11,6 +11,7 @@ import random
 import os
 import sys
 import datetime  # tambah
+import shutil # Tambah import shutil untuk menghapus direktori
 
 BASE = "https://indeks.kompas.com"
 CATEGORY = "nasional"
@@ -250,6 +251,12 @@ if __name__ == "__main__":
         if choice != 'y':
             print("Menggunakan data yang sudah ada.")
             exit(0)
+        else:
+            # Hapus folder data jika user memilih scraping ulang
+            if os.path.exists("data"):
+                print("Menghapus folder 'data' untuk memulai ulang...")
+                shutil.rmtree("data")
+                os.makedirs("data", exist_ok=True) # Buat ulang folder data yang kosong
     
     # BARU SCRAPING JIKA DIPERLUKAN
     articles_data = scrape_articles(BASE, CATEGORY, max_articles=400)
