@@ -173,5 +173,3 @@ information-retrieval-project/
 This project demonstrates the full lifecycle of an **Information Retrieval system**, from collecting real-world data to providing an interactive search experience — all using the Indonesian news domain **Kompas.com** 🇮🇩
 
 ---
-
-Apakah kamu mau aku tambahkan juga **contoh hasil tampilan Streamlit UI** (misalnya hasil pencarian dan snippet berita) dalam bentuk tabel atau screenshot placeholder di README-nya biar lebih menarik lagi?
