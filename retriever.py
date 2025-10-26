@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
         if results:
             df_results = pd.DataFrame(results)
-            print(df_results[['score', 'title', 'date', 'url']].head(10))  # Tampilkan top 10
+            print(df_results[['score', 'title', 'date', 'url']].head(20))  # Tampilkan top 20
         else:
             print("Tidak ada artikel yang ditemukan untuk kueri ini.")
         print("\n")

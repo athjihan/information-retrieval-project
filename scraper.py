@@ -5,22 +5,20 @@ import csv
 import json
 from urllib.parse import urljoin, urlparse
 import urllib.robotparser
-# from tqdm import tqdm
-from tqdm.auto import tqdm  # gunakan auto agar kompatibel terminal/Jupyter
+from tqdm.auto import tqdm 
 import random
 import os
-import sys
-import datetime  # tambah
-import shutil # Tambah import shutil untuk menghapus direktori
+import datetime  
+import shutil 
 
 BASE = "https://indeks.kompas.com"
 CATEGORY = "nasional"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",  # tambah
-    "Accept-Language": "id,en-US;q=0.9,en;q=0.8",  # tambah
-    "Referer": "https://indeks.kompas.com/",  # tambah
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", 
+    "Accept-Language": "id,en-US;q=0.9,en;q=0.8",  
+    "Referer": "https://indeks.kompas.com/",
 }
 
 session = requests.Session()
