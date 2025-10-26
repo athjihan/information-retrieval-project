@@ -12,11 +12,23 @@ queries = [
 ]
 
 # Fungsi bantu untuk cek relevansi sederhana
+import re
+
 def is_relevant(query, content):
-    """Menilai apakah konten relevan terhadap query (berdasarkan kemunculan kata kunci)."""
-    query_tokens = query.lower().split()
-    content = (content or "").lower()
-    return any(token in content for token in query_tokens)
+    if not content:
+        return False
+
+    # Ubah query jadi kumpulan token unik
+    tokens = re.findall(r'\w+', query.lower())  # ambil kata aja
+    if not tokens:
+        return False
+
+    # Bentuk pola regex OR seperti di VSCode, misal (politik|ikn|prabowo)
+    pattern = r'\b(' + '|'.join(map(re.escape, tokens)) + r')\b'
+
+    # Cocokkan di konten (case-insensitive, multiline)
+    return re.search(pattern, content, flags=re.IGNORECASE) is not None
+
 
 # Fungsi utama evaluasi retrieval
 def evaluate_retrieval(queries, top_k=20):
